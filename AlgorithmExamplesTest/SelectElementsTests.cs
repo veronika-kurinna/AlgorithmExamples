@@ -25,11 +25,30 @@ namespace AlgorithmExamplesTest
         }
 
         [Fact]
-        public void Select_CountElementsMoreThanZero_ReturnsListCorrectly()
+        public void Select_CountElementsMoreThanCountElementsInList_ThrowsArgumentException()
         {
             // Arrange
             SelectElements randomElements = new SelectElements();
-            int countElements = 1;
+            int countElements = 5;
+            List<string> elements = new List<string>
+            {
+                "What is an aggregate function in SQL?",
+                "What is ACID?"
+            };
+
+            // Act && Assert
+            Func<List<string>> action = () => randomElements.Select(elements, countElements);
+            action.Should().Throw<ArgumentException>()
+                           .WithMessage($"Count of elements {countElements} is invalid. Count must be less than elements in array");
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(3)]
+        public void Select_CountElementsMoreThanZero_ReturnsListCorrectly(int countElements)
+        {
+            // Arrange
+            SelectElements randomElements = new SelectElements();
             List<string> elements = new List<string>
             {
                 "What is an aggregate function in SQL?",

@@ -8,9 +8,10 @@ namespace AlgorithmExamples
         static void Main(string[] args)
         {
             SelectElements selectElements = new SelectElements();
-            GameFactory factory = new GameFactory(selectElements);
+            BinarySearch binarySearch = new BinarySearch();
+            GameFactory factory = new GameFactory(selectElements, binarySearch);
 
-            Console.WriteLine("Select the game (TrainingProgramming):");
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 

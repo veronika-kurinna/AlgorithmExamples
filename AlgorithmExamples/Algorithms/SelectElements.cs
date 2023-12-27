@@ -8,6 +8,10 @@
             {
                 throw new ArgumentException($"Count of elements {countElements} is invalid. Count must be more than zero");
             }
+            if (countElements > list.Count)
+            {
+                throw new ArgumentException($"Count of elements {countElements} is invalid. Count must be less than elements in array");
+            }
 
             Random random = new Random();
             int countSelectedElements = 0;

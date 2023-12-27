@@ -4,7 +4,6 @@ namespace AlgorithmExamples.Games
 {
     public class TrainingProgramming : IGame
     {
-        private readonly int _countElements = 3;
         private readonly ISelectElements _selectElements;
         private readonly List<string> _theorySql = new List<string>
         {
@@ -30,8 +29,12 @@ namespace AlgorithmExamples.Games
 
         public void Play()
         {
-            List<string> selectedTheorySql = _selectElements.Select(_theorySql, _countElements);
-            List<string> selectedTheoryBackend = _selectElements.Select(_theoryBackend, _countElements);
+            Console.WriteLine($"Write how many tasks do you want to learn in SQL and Backend(max count is {_theoryBackend.Count}):");
+            string? countElementsString = Console.ReadLine();
+            int countElements = Convert.ToInt32(countElementsString);
+
+            List<string> selectedTheorySql = _selectElements.Select(_theorySql, countElements);
+            List<string> selectedTheoryBackend = _selectElements.Select(_theoryBackend, countElements);
 
             Console.WriteLine("Revise theory in SQL and Backend:");
             PrintElements(selectedTheorySql);
