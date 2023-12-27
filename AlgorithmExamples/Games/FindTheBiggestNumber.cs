@@ -13,7 +13,7 @@ namespace AlgorithmExamples.Games
 
         public void Play()
         {
-            Console.WriteLine("Write 3 numbers and computer finds the biggest number");
+            Console.WriteLine("Write 3 numbers and program will find the biggest number");
             string? firstNumberString = Console.ReadLine();
             int firstNumber = Convert.ToInt32(firstNumberString);
             string? secondNumberString = Console.ReadLine();

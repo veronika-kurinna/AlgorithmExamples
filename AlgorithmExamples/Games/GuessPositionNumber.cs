@@ -14,7 +14,7 @@ namespace AlgorithmExamples.Games
 
         public void Play()
         {
-            Console.WriteLine("Select number and program find position of this number:");
+            Console.WriteLine("Select number and program will find position of this number:");
             foreach (var item in _numbers)
             {
                 Console.WriteLine(item);

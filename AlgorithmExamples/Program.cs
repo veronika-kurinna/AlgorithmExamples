@@ -10,10 +10,11 @@ namespace AlgorithmExamples
             SelectElements selectElements = new SelectElements();
             BinarySearch binarySearch = new BinarySearch();
             TheBiggestNumber theBiggestNumber = new TheBiggestNumber();
+            Palindrome palindrome = new Palindrome();
 
-            GameFactory factory = new GameFactory(selectElements, binarySearch, theBiggestNumber);
+            GameFactory factory = new GameFactory(selectElements, binarySearch, theBiggestNumber, palindrome);
 
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, FindTheBiggestNumber):");
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, FindTheBiggestNumber, GuessPalindrome):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 

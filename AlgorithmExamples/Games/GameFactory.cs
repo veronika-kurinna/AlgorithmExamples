@@ -7,12 +7,14 @@ namespace AlgorithmExamples.Games
         private readonly ISelectElements _selectElements;
         private readonly IBinarySearch _binarySearch;
         private readonly ITheBiggestNumber _theBiggestNumber;
+        private readonly IPalindrome _palindrome;
 
-        public GameFactory(ISelectElements selectElements, IBinarySearch binarySearch, ITheBiggestNumber theBiggestNumber)
+        public GameFactory(ISelectElements selectElements, IBinarySearch binarySearch, ITheBiggestNumber theBiggestNumber, IPalindrome palindrome)
         {
             _selectElements = selectElements;
             _binarySearch = binarySearch;
             _theBiggestNumber = theBiggestNumber;
+            _palindrome = palindrome;
         }
 
         public IGame CreateGame(string gameName)
@@ -25,6 +27,8 @@ namespace AlgorithmExamples.Games
                     return new GuessPositionNumber(_binarySearch);
                 case "findthebiggestnumber":
                     return new FindTheBiggestNumber(_theBiggestNumber);
+                case "guesspalindrome":
+                    return new GuessPalindrome(_palindrome);
                 default:
                     throw new ArgumentException("Invalid game specified");
             }
