@@ -9,9 +9,11 @@ namespace AlgorithmExamples
         {
             SelectElements selectElements = new SelectElements();
             BinarySearch binarySearch = new BinarySearch();
-            GameFactory factory = new GameFactory(selectElements, binarySearch);
+            TheBiggestNumber theBiggestNumber = new TheBiggestNumber();
 
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber):");
+            GameFactory factory = new GameFactory(selectElements, binarySearch, theBiggestNumber);
+
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, FindTheBiggestNumber):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 
