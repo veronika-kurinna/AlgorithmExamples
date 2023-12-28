@@ -1,8 +1,8 @@
 ﻿namespace AlgorithmExamples.Algorithms
 {
-    public class TheBiggestNumber : ITheBiggestNumber
+    public static class TheBiggestNumber
     {
-        public int FindTheBiggestNumber(int[] array)
+        public static int FindTheBiggestNumber(int[] array)
         {
             if (array.Length == 0)
             {

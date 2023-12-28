@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace AlgorithmExamplesTest
+namespace AlgorithmExamplesTest.AlgorithmsTests
 {
     public class SelectElementsTests
     {
@@ -10,7 +10,6 @@ namespace AlgorithmExamplesTest
         public void Select_CountElementsLessThanZero_ThrowsArgumentException()
         {
             // Arrange
-            SelectElements randomElements = new SelectElements();
             int countElements = -3;
             List<string> elements = new List<string>
             {
@@ -19,7 +18,7 @@ namespace AlgorithmExamplesTest
             };
 
             // Act && Assert
-            Func<List<string>> action = () => randomElements.Select(elements, countElements);
+            Func<List<string>> action = () => SelectElements.Select(elements, countElements);
             action.Should().Throw<ArgumentException>()
                            .WithMessage($"Count of elements {countElements} is invalid. Count must be more than zero");
         }
@@ -28,7 +27,6 @@ namespace AlgorithmExamplesTest
         public void Select_CountElementsMoreThanCountElementsInList_ThrowsArgumentException()
         {
             // Arrange
-            SelectElements randomElements = new SelectElements();
             int countElements = 5;
             List<string> elements = new List<string>
             {
@@ -37,7 +35,7 @@ namespace AlgorithmExamplesTest
             };
 
             // Act && Assert
-            Func<List<string>> action = () => randomElements.Select(elements, countElements);
+            Func<List<string>> action = () => SelectElements.Select(elements, countElements);
             action.Should().Throw<ArgumentException>()
                            .WithMessage($"Count of elements {countElements} is invalid. Count must be less than elements in array");
         }
@@ -48,7 +46,6 @@ namespace AlgorithmExamplesTest
         public void Select_CountElementsMoreThanZero_ReturnsListCorrectly(int countElements)
         {
             // Arrange
-            SelectElements randomElements = new SelectElements();
             List<string> elements = new List<string>
             {
                 "What is an aggregate function in SQL?",
@@ -57,7 +54,7 @@ namespace AlgorithmExamplesTest
             };
 
             // Act
-            List<string> result = randomElements.Select(elements, countElements);
+            List<string> result = SelectElements.Select(elements, countElements);
 
             // Assert
             result.Should().HaveCount(countElements);
@@ -67,7 +64,6 @@ namespace AlgorithmExamplesTest
         public void Select_CallMethod1000Times_ReturnsListsCorrectly()
         {
             // Arrange
-            SelectElements randomElements = new SelectElements();
             int countElements = 3;
             List<string> elements = new List<string>
             {
@@ -77,30 +73,29 @@ namespace AlgorithmExamplesTest
                 "What is SOLID?",
                 "What is the difference between unit test and integration test?",
             };
-            Dictionary<string, int> dictionary = new Dictionary<string, int>
-            {
-                { "What is an aggregate function in SQL?", 0 },
-                { "What is the difference between Primary key and Unique?", 0 },
-                { "What is ACID?", 0 },
-                { "What is SOLID?", 0 },
-                { "What is the difference between unit test and integration test?", 0 }
-            };
+
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
             // Act
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
-                List<string> result = randomElements.Select(elements, countElements);
+                List<string> result = SelectElements.Select(elements, countElements);
+
                 foreach (var item in result)
                 {
                     if (dictionary.ContainsKey(item))
                     {
                         dictionary[item]++;
                     }
+                    else
+                    {
+                        dictionary.Add(item, 1);
+                    }
                 }
             }
 
             // Assert
-            dictionary.Values.Should().OnlyContain(e => e > 550 && e < 650);
+            dictionary.Values.Should().OnlyContain(e => e > 550000 && e < 650000);
         }
     }
 }

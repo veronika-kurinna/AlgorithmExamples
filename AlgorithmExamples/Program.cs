@@ -7,11 +7,7 @@ namespace AlgorithmExamples
     {
         static void Main(string[] args)
         {
-            SelectElements selectElements = new SelectElements();
-            BinarySearch binarySearch = new BinarySearch();
-            TheBiggestNumber theBiggestNumber = new TheBiggestNumber();
-
-            GameFactory factory = new GameFactory(selectElements, binarySearch, theBiggestNumber);
+            GameFactory factory = new GameFactory();
 
             Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, FindTheBiggestNumber):");
             string? gameName = Console.ReadLine();

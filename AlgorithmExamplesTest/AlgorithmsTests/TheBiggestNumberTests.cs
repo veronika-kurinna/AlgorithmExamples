@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace AlgorithmExamplesTest
+namespace AlgorithmExamplesTest.AlgorithmsTests
 {
     public class TheBiggestNumberTests
     {
@@ -13,11 +13,8 @@ namespace AlgorithmExamplesTest
         [InlineData(new int[] { 2 }, 2)]
         public void FindTheBiggestNumber_ArrayWithNumbers_ReturnsTheBiggestNumber(int[] array, int expectedResult)
         {
-            //Arrange
-            TheBiggestNumber theBiggestNumber = new TheBiggestNumber();
-
-            //Act
-            int result = theBiggestNumber.FindTheBiggestNumber(array);
+            //Arrange && Act
+            int result = TheBiggestNumber.FindTheBiggestNumber(array);
 
             //Assert
             result.Should().Be(expectedResult);
@@ -28,10 +25,9 @@ namespace AlgorithmExamplesTest
         {
             //Arrange
             int[] array = Array.Empty<int>();
-            TheBiggestNumber theBiggestNumber = new TheBiggestNumber();
 
             //Act && Assert
-            Action act = () => theBiggestNumber.FindTheBiggestNumber(array);
+            Action act = () => TheBiggestNumber.FindTheBiggestNumber(array);
             act.Should().Throw<ArgumentException>()
                         .WithMessage("Array is empty");
         }

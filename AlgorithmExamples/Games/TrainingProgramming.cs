@@ -4,7 +4,6 @@ namespace AlgorithmExamples.Games
 {
     public class TrainingProgramming : IGame
     {
-        private readonly ISelectElements _selectElements;
         private readonly List<string> _theorySql = new List<string>
         {
             "What is an aggregate function in SQL?",
@@ -22,19 +21,14 @@ namespace AlgorithmExamples.Games
             "What is extension methods?"
         };
 
-        public TrainingProgramming(ISelectElements selectElements)
-        {
-            _selectElements = selectElements;
-        }
-
         public void Play()
         {
             Console.WriteLine($"Write how many tasks do you want to learn in SQL and Backend(max count is {_theoryBackend.Count}):");
             string? countElementsString = Console.ReadLine();
             int countElements = Convert.ToInt32(countElementsString);
 
-            List<string> selectedTheorySql = _selectElements.Select(_theorySql, countElements);
-            List<string> selectedTheoryBackend = _selectElements.Select(_theoryBackend, countElements);
+            List<string> selectedTheorySql = SelectElements.Select(_theorySql, countElements);
+            List<string> selectedTheoryBackend = SelectElements.Select(_theoryBackend, countElements);
 
             Console.WriteLine("Revise theory in SQL and Backend:");
             PrintElements(selectedTheorySql);
