@@ -7,10 +7,10 @@ namespace AlgorithmExamplesTest.GamesTests
     public class GameFactoryTests
     {
         [Theory]
-        [InlineData("FindTheBiggestNumber")]
-        [InlineData("findthebiggestnumber")]
-        [InlineData("findtHebiggesTnumber")]
-        public void CreateGame_FindTheBiggestNumber_ReturnsCorrectly(string game)
+        [InlineData("PlayWithArray")]
+        [InlineData("playwitharray")]
+        [InlineData("plAywitHarrAy")]
+        public void CreateGame_PlayWithArray_ReturnsCorrectly(string game)
         {
             // Arrange
             GameFactory factory = new GameFactory();
@@ -19,7 +19,7 @@ namespace AlgorithmExamplesTest.GamesTests
             IGame result = factory.CreateGame(game);
 
             // Assert
-            result.Should().BeOfType<FindTheBiggestNumber>();
+            result.Should().BeOfType<PlayWithArray>();
         }
 
         [Theory]

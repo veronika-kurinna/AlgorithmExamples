@@ -10,8 +10,8 @@
                     return new TrainingProgramming();
                 case "guessnumber":
                     return new GuessPositionNumber();
-                case "findthebiggestnumber":
-                    return new FindTheBiggestNumber();
+                case "playwitharray":
+                    return new PlayWithArray();
                 default:
                     throw new ArgumentException("Invalid game specified");
             }

@@ -1,5 +1,4 @@
-﻿using AlgorithmExamples.Algorithms;
-using AlgorithmExamples.Games;
+﻿using AlgorithmExamples.Games;
 
 namespace AlgorithmExamples
 {
@@ -9,7 +8,7 @@ namespace AlgorithmExamples
         {
             GameFactory factory = new GameFactory();
 
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, FindTheBiggestNumber):");
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 
