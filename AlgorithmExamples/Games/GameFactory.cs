@@ -1,6 +1,4 @@
-﻿using AlgorithmExamples.Algorithms;
-
-namespace AlgorithmExamples.Games
+﻿namespace AlgorithmExamples.Games
 {
     public class GameFactory
     {
