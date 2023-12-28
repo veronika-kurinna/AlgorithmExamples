@@ -61,7 +61,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         }
 
         [Fact]
-        public void Select_CallMethod1000Times_ReturnsListsCorrectly()
+        public void Select_CallMethod1millionTimes_ReturnsListsCorrectly()
         {
             // Arrange
             int countElements = 3;
