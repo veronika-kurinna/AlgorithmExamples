@@ -9,7 +9,7 @@
                 case "trainingprogramming":
                     return new TrainingProgramming();
                 case "guessnumber":
-                    return new GuessPositionNumber();
+                    return new GuessNumber();
                 case "playwitharray":
                     return new PlayWithArray();
                 default:

@@ -35,7 +35,7 @@ namespace AlgorithmExamplesTest.GamesTests
             IGame result = factory.CreateGame(game);
 
             // Assert
-            result.Should().BeOfType<GuessPositionNumber>();
+            result.Should().BeOfType<GuessNumber>();
         }
 
         [Theory]
