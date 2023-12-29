@@ -7,87 +7,34 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
     public class ArrayAlgorithmsTests
     {
         [Theory]
-        [InlineData(new int[] { 6, 9, 2, 8, 4 }, 2)]
-        [InlineData(new int[] { 6, 1, -2, 8, -4 }, -4)]
-        [InlineData(new int[] { -6, -1, -2, -8, -4 }, -8)]
-        [InlineData(new int[] { 5, 5, 5, 5, 5 }, 5)]
-        [InlineData(new int[] { 2 }, 2)]
-        public void FindTheSmallestNumber_ArrayWithNumbers_ReturnsTheSmallestNumber(int[] array, int expectedResult)
+        [InlineData(new int[] { 6, 9, 2, 8, 4 }, 29, 2, 9)]
+        [InlineData(new int[] { 6, 1, -2, 8, -4 }, 9, -4, 8)]
+        [InlineData(new int[] { -6, -1, -2, -8, -4 }, -21, -8, -1)]
+        [InlineData(new int[] { 5, 5, 5, 5, 5 }, 25, 5, 5)]
+        [InlineData(new int[] { 2 }, 2, 2, 2)]
+        public void CalculateSumElementsFindSmallestBiggestElement_ArrayWithNumbers_ReturnsSumSmallestBiggestNumberCorrectly
+                    (int[] array, int expectedSum, int expectedSmallestNumber, int expectedBiggestNumber)
         {
             //Arrange && Act
-            int result = ArrayAlgorithms.FindTheSmallestNumber(array);
+            ArraySpecification result = ArrayAlgorithms.CalculateSumElementsFindSmallestBiggestElement(array);
 
             //Assert
-            result.Should().Be(expectedResult);
+            result.Sum.Should().Be(expectedSum);
+            result.TheSmallestNumber.Should().Be(expectedSmallestNumber);
+            result.TheBiggestNumber.Should().Be(expectedBiggestNumber);
         }
 
         [Fact]
-        public void FindTheSmallestNumber_ArrayIsEmpty_ThrowsArgumentException()
+        public void CalculateSumElementsFindSmallestBiggestElement_ArrayIsEmpty_ThrowsArgumentException()
         {
             //Arrange
             int[] array = Array.Empty<int>();
 
             //Act && Assert
-            Action act = () => ArrayAlgorithms.FindTheSmallestNumber(array);
+            Action act = () => ArrayAlgorithms.CalculateSumElementsFindSmallestBiggestElement(array);
             act.Should().Throw<ArgumentException>()
                         .WithMessage("Array is empty");
         }
-
-
-        [Theory]
-        [InlineData(new int[] { 6, 9, 2, 8, 4 }, 9)]
-        [InlineData(new int[] { 6, 1, -2, 8, -4 }, 8)]
-        [InlineData(new int[] { -6, -1, -2, -8, -4 }, -1)]
-        [InlineData(new int[] { 5, 5, 5, 5, 5 }, 5)]
-        [InlineData(new int[] { 2 }, 2)]
-        public void FindTheBiggestNumber_ArrayWithNumbers_ReturnsTheBiggestNumber(int[] array, int expectedResult)
-        {
-            //Arrange && Act
-            int result = ArrayAlgorithms.FindTheBiggestNumber(array);
-
-            //Assert
-            result.Should().Be(expectedResult);
-        }
-
-        [Fact]
-        public void FindTheBiggestNumber_ArrayIsEmpty_ThrowsArgumentException()
-        {
-            //Arrange
-            int[] array = Array.Empty<int>();
-
-            //Act && Assert
-            Action act = () => ArrayAlgorithms.FindTheBiggestNumber(array);
-            act.Should().Throw<ArgumentException>()
-                        .WithMessage("Array is empty");
-        }
-
-        [Theory]
-        [InlineData(new int[] { 6, 9, 2, 8, 4 }, 29)]
-        [InlineData(new int[] { 6, 9, -2, 8, -4 }, 17)]
-        [InlineData(new int[] { -6, -9, -2, -8, -4 }, -29)]
-        [InlineData(new int[] { 2 }, 2)]
-        [InlineData(new int[] { 5, 5, 5, 5 }, 20)]
-        public void FindSum_ArrayWithNumbers_ReturnsSum(int[] array, int expectedResult)
-        {
-            //Arrange && Act
-            int result = ArrayAlgorithms.FindSum(array);
-
-            //Assert
-            result.Should().Be(expectedResult);
-        }
-
-        [Fact]
-        public void FindSum_ArrayIsEmpty_ThrowsArgumentException()
-        {
-            //Arrange
-            int[] array = Array.Empty<int>();
-
-            //Act && Assert
-            Action act = () => ArrayAlgorithms.FindSum(array);
-            act.Should().Throw<ArgumentException>()
-                        .WithMessage("Array is empty");
-        }
-
 
         [Theory]
         [InlineData(new int[] { 6, 9, 2, -8, 4 })]
@@ -108,7 +55,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         public void SortElementsBubble_ArrayIsEmpty_ThrowsArgumentException()
         {
             //Arrange
-            int[] array = Array.Empty<int>();
+            int[] array = System.Array.Empty<int>();
 
             //Act && Assert
             Action act = () => ArrayAlgorithms.SortElementsBubble(array);

@@ -20,21 +20,10 @@ namespace AlgorithmExamples.Games
 
             int[] array = { firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber };
 
-            int theSmallestNumber = ArrayAlgorithms.FindTheSmallestNumber(array);
-            Console.WriteLine($"The the smallest number: {theSmallestNumber}");
-
-            int theBiggestNumber = ArrayAlgorithms.FindTheBiggestNumber(array);
-            Console.WriteLine($"The the biggest number: {theBiggestNumber}");
-
-            int sum = ArrayAlgorithms.FindSum(array);
-            Console.WriteLine($"Sum of elements: {sum}");
-
-            ArrayAlgorithms.SortElementsBubble(array);
-            Console.WriteLine("Sorted Array:");
-            foreach (var item in array)
-            {
-                Console.Write(item + " ");
-            }
+            ArraySpecification result = ArrayAlgorithms.CalculateSumElementsFindSmallestBiggestElement(array);
+            Console.WriteLine($"The the smallest number: {result.TheSmallestNumber}");
+            Console.WriteLine($"The the biggest number: {result.TheBiggestNumber}");
+            Console.WriteLine($"Sum of elements: {result.Sum}");
         }
     }
 }

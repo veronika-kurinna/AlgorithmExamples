@@ -2,55 +2,34 @@
 {
     public static class ArrayAlgorithms
     {
-        public static int FindTheSmallestNumber(int[] array)
+        public static ArraySpecification CalculateSumElementsFindSmallestBiggestElement(int[] array)
         {
             if (array.Length == 0)
             {
                 throw new ArgumentException("Array is empty");
             }
-
+            int sum = 0;
             int theSmallestNumber = array[0];
+            int theBiggestNumber = array[0];
+
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] < theSmallestNumber)
                 {
                     theSmallestNumber = array[i];
                 }
-            }
-            return theSmallestNumber;
-        }
-
-        public static int FindTheBiggestNumber(int[] array)
-        {
-            if (array.Length == 0)
-            {
-                throw new ArgumentException("Array is empty");
-            }
-
-            int theBiggestNumber = array[0];
-            for (int i = 0; i < array.Length; i++)
-            {
                 if (array[i] > theBiggestNumber)
                 {
                     theBiggestNumber = array[i];
                 }
-            }
-            return theBiggestNumber;
-        }
-
-        public static int FindSum(int[] array)
-        {
-            if (array.Length == 0)
-            {
-                throw new ArgumentException("Array is empty");
-            }
-
-            int sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
                 sum += array[i];
             }
-            return sum;
+            return new ArraySpecification()
+            {
+                TheSmallestNumber = theSmallestNumber,
+                TheBiggestNumber = theBiggestNumber,
+                Sum = sum
+            };
         }
 
         public static void SortElementsBubble(int[] array)
