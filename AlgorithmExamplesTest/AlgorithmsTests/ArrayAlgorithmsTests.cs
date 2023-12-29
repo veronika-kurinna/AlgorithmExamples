@@ -55,7 +55,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         public void SortElementsBubble_ArrayIsEmpty_ThrowsArgumentException()
         {
             //Arrange
-            int[] array = System.Array.Empty<int>();
+            int[] array = Array.Empty<int>();
 
             //Act && Assert
             Action act = () => ArrayAlgorithms.SortElementsBubble(array);

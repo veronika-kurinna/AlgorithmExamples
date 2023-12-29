@@ -40,12 +40,11 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
                            .WithMessage($"Count of elements {countElements} is invalid. Count must be less than elements in array");
         }
 
-        [Theory]
-        [InlineData(1)]
-        [InlineData(3)]
-        public void Select_CountElementsMoreThanZero_ReturnsListCorrectly(int countElements)
+        [Fact]
+        public void Select_CountElementsMoreThanZero_ReturnsListCorrectly()
         {
             // Arrange
+            int countElements = 1;
             List<string> elements = new List<string>
             {
                 "What is an aggregate function in SQL?",
@@ -57,7 +56,28 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             List<string> result = SelectElements.Select(elements, countElements);
 
             // Assert
-            result.Should().HaveCount(countElements);
+            result.Should().OnlyContain(e => e == "What is an aggregate function in SQL?" ||
+                                             e == "What is the difference between Primary key and Unique?" ||
+                                             e == "What is ACID?");
+        }
+
+        [Fact]
+        public void Select_CountElementsTheSameAsCountElementsInList_ReturnsListCorrectly()
+        {
+            // Arrange
+            int countElements = 3;
+            List<string> elements = new List<string>
+            {
+                "What is an aggregate function in SQL?",
+                "What is the difference between Primary key and Unique?",
+                "What is ACID?"
+            };
+
+            // Act
+            List<string> result = SelectElements.Select(elements, countElements);
+
+            // Assert
+            result.Should().Contain(elements);
         }
 
         [Fact]
@@ -95,7 +115,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             }
 
             // Assert
-            dictionary.Values.Should().OnlyContain(e => e > 550000 && e < 650000);
+            dictionary.Values.Should().OnlyContain(e => e > 598000 && e < 610000);
         }
     }
 }
