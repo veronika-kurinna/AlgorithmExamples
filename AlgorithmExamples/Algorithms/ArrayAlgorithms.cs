@@ -2,7 +2,7 @@
 {
     public static class ArrayAlgorithms
     {
-        public static ArraySpecification CalculateSumElementsFindSmallestBiggestElement(int[] array)
+        public static ArrayInfo GetArrayInfo(int[] array)
         {
             if (array.Length == 0)
             {
@@ -24,7 +24,7 @@
                 }
                 sum += array[i];
             }
-            return new ArraySpecification()
+            return new ArrayInfo()
             {
                 TheSmallestNumber = theSmallestNumber,
                 TheBiggestNumber = theBiggestNumber,

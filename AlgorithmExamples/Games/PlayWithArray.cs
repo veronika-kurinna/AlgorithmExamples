@@ -9,7 +9,7 @@ namespace AlgorithmExamples.Games
             Console.WriteLine("Write 5 numbers and computer will find the smallest number, the biggest number and sum of elements.");
             int[] array = ReadNumber(5);
 
-            ArraySpecification result = ArrayAlgorithms.CalculateSumElementsFindSmallestBiggestElement(array);
+            ArrayInfo result = ArrayAlgorithms.GetArrayInfo(array);
             Console.WriteLine($"The the smallest number: {result.TheSmallestNumber}");
             Console.WriteLine($"The the biggest number: {result.TheBiggestNumber}");
             Console.WriteLine($"Sum of elements: {result.Sum}");
@@ -21,10 +21,8 @@ namespace AlgorithmExamples.Games
             for (int i = 0; i < countNumbers; i++)
             {
                 string? numberString = Console.ReadLine();
-
-                if (numberString.All(char.IsNumber))
+                if (int.TryParse(numberString, out int number))
                 {
-                    int number = Convert.ToInt32(numberString);
                     array[i] = number;
                 }
                 else

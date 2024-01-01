@@ -1,6 +1,6 @@
 ﻿namespace AlgorithmExamples.Algorithms
 {
-    public class ArraySpecification
+    public class ArrayInfo
     {
         public int TheSmallestNumber { get; set; }
         public int TheBiggestNumber { get; set; }

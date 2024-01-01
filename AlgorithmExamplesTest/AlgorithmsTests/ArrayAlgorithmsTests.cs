@@ -12,11 +12,11 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         [InlineData(new int[] { -6, -1, -2, -8, -4 }, -21, -8, -1)]
         [InlineData(new int[] { 5, 5, 5, 5, 5 }, 25, 5, 5)]
         [InlineData(new int[] { 2 }, 2, 2, 2)]
-        public void CalculateSumElementsFindSmallestBiggestElement_ArrayWithNumbers_ReturnsSumSmallestBiggestNumberCorrectly
+        public void GetArrayInfo_ArrayWithNumbers_ReturnsInfoCorrectly
                     (int[] array, int expectedSum, int expectedSmallestNumber, int expectedBiggestNumber)
         {
             //Arrange && Act
-            ArraySpecification result = ArrayAlgorithms.CalculateSumElementsFindSmallestBiggestElement(array);
+            ArrayInfo result = ArrayAlgorithms.GetArrayInfo(array);
 
             //Assert
             result.Sum.Should().Be(expectedSum);
@@ -25,13 +25,13 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         }
 
         [Fact]
-        public void CalculateSumElementsFindSmallestBiggestElement_ArrayIsEmpty_ThrowsArgumentException()
+        public void GetArrayInfo_ArrayIsEmpty_ThrowsArgumentException()
         {
             //Arrange
             int[] array = Array.Empty<int>();
 
             //Act && Assert
-            Action act = () => ArrayAlgorithms.CalculateSumElementsFindSmallestBiggestElement(array);
+            Action act = () => ArrayAlgorithms.GetArrayInfo(array);
             act.Should().Throw<ArgumentException>()
                         .WithMessage("Array is empty");
         }
