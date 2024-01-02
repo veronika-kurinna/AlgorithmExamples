@@ -42,23 +42,23 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         [InlineData(new int[] { 1, 2, 3, 4 })]
         [InlineData(new int[] { 6 })]
         [InlineData(new int[] { 3, 7, 4, 2, 5, 4 })]
-        public void SortElementsBubble_NumbersOutOfOrder_ReturnsNumberInOrder(int[] array)
+        public void BubbleSort_NumbersOutOfOrder_ReturnsNumberInOrder(int[] array)
         {
             //Arrange && Act
-            ArrayAlgorithms.SortElementsBubble(array);
+            ArrayAlgorithms.BubbleSort(array);
 
             //Assert
             array.Should().BeInAscendingOrder();
         }
 
         [Fact]
-        public void SortElementsBubble_ArrayIsEmpty_ThrowsArgumentException()
+        public void BubbleSort_ArrayIsEmpty_ThrowsArgumentException()
         {
             //Arrange
             int[] array = Array.Empty<int>();
 
             //Act && Assert
-            Action act = () => ArrayAlgorithms.SortElementsBubble(array);
+            Action act = () => ArrayAlgorithms.BubbleSort(array);
             act.Should().Throw<ArgumentException>()
                         .WithMessage("Array is empty");
         }

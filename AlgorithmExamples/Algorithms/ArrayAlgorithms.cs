@@ -32,7 +32,7 @@
             };
         }
 
-        public static void SortElementsBubble(int[] array)
+        public static void BubbleSort(int[] array)
         {
             if (array.Length == 0)
             {

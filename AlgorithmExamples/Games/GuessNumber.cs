@@ -13,7 +13,7 @@ namespace AlgorithmExamples.Games
                 int randomNumber = random.Next(0, 50);
                 numbers[i] = randomNumber;
             }
-            ArrayAlgorithms.SortElementsBubble(numbers);
+            ArrayAlgorithms.BubbleSort(numbers);
            
             Console.WriteLine("Write number from 1 to 50. If this number is present in array, program will find position of number");
             string? selectedNumberString = Console.ReadLine();
