@@ -14,12 +14,12 @@ namespace AlgorithmExamples.Games
                 numbers[i] = randomNumber;
             }
             ArrayAlgorithms.BubbleSort(numbers);
-           
-            Console.WriteLine("Write number from 1 to 50. If this number is present in array, program will find position of number");
-            string? selectedNumberString = Console.ReadLine();
-            int selectedNumber = Convert.ToInt32(selectedNumberString);
 
-            int index = BinarySearch.Search(numbers, selectedNumber);
+            int countNumbers = 1;
+            Console.WriteLine("Write number from 1 to 50. If this number is present in array, program will find position of number");
+            int[] array = Game.ReadNumber(countNumbers);
+
+            int index = BinarySearch.Search(numbers, array[0]);
             if (index == -1)
             {
                 Console.WriteLine("Selected number doesn't exist in array");

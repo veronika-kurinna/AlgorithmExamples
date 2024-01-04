@@ -56,9 +56,8 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             List<string> result = SelectElements.Select(elements, countElements);
 
             // Assert
-            result.Should().OnlyContain(e => e == "What is an aggregate function in SQL?" ||
-                                             e == "What is the difference between Primary key and Unique?" ||
-                                             e == "What is ACID?");
+            result.Should().AllSatisfy(e => elements.Should().Contain(e)).
+                            And.OnlyHaveUniqueItems();
         }
 
         [Fact]
@@ -77,7 +76,8 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             List<string> result = SelectElements.Select(elements, countElements);
 
             // Assert
-            result.Should().Contain(elements);
+            result.Should().AllSatisfy(e => elements.Should().Contain(e)).
+                            And.OnlyHaveUniqueItems();
         }
 
         [Fact]
@@ -115,7 +115,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             }
 
             // Assert
-            dictionary.Values.Should().OnlyContain(e => e > 598000 && e < 610000);
+            dictionary.Values.Should().OnlyContain(e => e > 599000 && e < 601000);
         }
     }
 }
