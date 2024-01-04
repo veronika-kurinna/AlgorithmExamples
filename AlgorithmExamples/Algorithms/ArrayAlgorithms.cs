@@ -26,8 +26,8 @@
             }
             return new ArrayInfo()
             {
-                TheSmallestNumber = theSmallestNumber,
-                TheBiggestNumber = theBiggestNumber,
+                SmallestNumber = theSmallestNumber,
+                BiggestNumber = theBiggestNumber,
                 Sum = sum
             };
         }

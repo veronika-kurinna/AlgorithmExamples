@@ -34,7 +34,7 @@ namespace AlgorithmExamples.Games
         public void Play()
         {
             Console.WriteLine($"Write how many tasks do you want to learn in SQL and Backend(max count is {_theoryBackend.Count}):");
-            int number = Game.ReadNumber();
+            int number = ConsoleReader.ReadNumber();
 
             List<string> selectedTheorySql = SelectElements.Select(_theorySql, number);
             List<string> selectedTheoryBackend = SelectElements.Select(_theoryBackend, number);

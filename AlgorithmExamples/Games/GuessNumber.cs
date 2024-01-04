@@ -10,13 +10,12 @@ namespace AlgorithmExamples.Games
             int[] numbers = new int[15];
             for (int i = 0; i < numbers.Length; i++)
             {
-                int randomNumber = random.Next(0, 50);
-                numbers[i] = randomNumber;
+                numbers[i] = random.Next(0, 50);
             }
             ArrayAlgorithms.BubbleSort(numbers);
 
             Console.WriteLine("Write number from 1 to 50. If this number is present in array, program will find position of number");
-            int number = Game.ReadNumber();
+            int number = ConsoleReader.ReadNumber();
             int index = BinarySearch.Search(numbers, number);
             if (index == -1)
             {

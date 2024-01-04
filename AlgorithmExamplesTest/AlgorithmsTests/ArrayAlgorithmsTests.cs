@@ -20,8 +20,8 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
 
             //Assert
             result.Sum.Should().Be(expectedSum);
-            result.TheSmallestNumber.Should().Be(expectedSmallestNumber);
-            result.TheBiggestNumber.Should().Be(expectedBiggestNumber);
+            result.SmallestNumber.Should().Be(expectedSmallestNumber);
+            result.BiggestNumber.Should().Be(expectedBiggestNumber);
         }
 
         [Fact]

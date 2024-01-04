@@ -11,13 +11,12 @@ namespace AlgorithmExamples.Games
             int[] array = new int[countNumbers];
             for (int i = 0; i < array.Length; i++)
             {
-                int number = Game.ReadNumber();
-                array[i] = number;
+                array[i] = ConsoleReader.ReadNumber();
             }
 
             ArrayInfo result = ArrayAlgorithms.GetArrayInfo(array);
-            Console.WriteLine($"The the smallest number: {result.TheSmallestNumber}");
-            Console.WriteLine($"The the biggest number: {result.TheBiggestNumber}");
+            Console.WriteLine($"The the smallest number: {result.SmallestNumber}");
+            Console.WriteLine($"The the biggest number: {result.BiggestNumber}");
             Console.WriteLine($"Sum of elements: {result.Sum}");
         }
     }

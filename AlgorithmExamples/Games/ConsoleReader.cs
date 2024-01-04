@@ -1,6 +1,6 @@
 ﻿namespace AlgorithmExamples.Games
 {
-    public static class Game
+    public static class ConsoleReader
     {
         public static int ReadNumber()
         {

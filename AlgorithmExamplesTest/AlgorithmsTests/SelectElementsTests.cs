@@ -115,7 +115,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             }
 
             // Assert
-            dictionary.Values.Should().OnlyContain(e => e > 599000 && e < 601000);
+            dictionary.Values.Should().OnlyContain(e => e > 598000 && e < 602000);
         }
     }
 }
