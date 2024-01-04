@@ -33,12 +33,11 @@ namespace AlgorithmExamples.Games
 
         public void Play()
         {
-            int countNumbers = 1;
             Console.WriteLine($"Write how many tasks do you want to learn in SQL and Backend(max count is {_theoryBackend.Count}):");
-            int[] numbers = Game.ReadNumber(countNumbers);
+            int number = Game.ReadNumber();
 
-            List<string> selectedTheorySql = SelectElements.Select(_theorySql, numbers[0]);
-            List<string> selectedTheoryBackend = SelectElements.Select(_theoryBackend, numbers[0]);
+            List<string> selectedTheorySql = SelectElements.Select(_theorySql, number);
+            List<string> selectedTheoryBackend = SelectElements.Select(_theoryBackend, number);
 
             Console.WriteLine("Revise theory in SQL and Backend:");
             PrintElements(selectedTheorySql);

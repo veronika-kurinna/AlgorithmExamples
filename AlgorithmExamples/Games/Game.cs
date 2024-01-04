@@ -2,24 +2,21 @@
 {
     public static class Game
     {
-        public static int[] ReadNumber(int countNumbers)
+        public static int ReadNumber()
         {
-            int[] array = new int[countNumbers];
-            for (int i = 0; i < countNumbers; i++)
+            while (true)
             {
                 string? numberString = Console.ReadLine();
                 int number;
                 if (int.TryParse(numberString, out number))
                 {
-                    array[i] = number;
+                    return number;
                 }
                 else
                 {
                     Console.WriteLine("You've written letters. Use only numbers");
-                    i--;
                 }
             }
-            return array;
         }
     }
 }

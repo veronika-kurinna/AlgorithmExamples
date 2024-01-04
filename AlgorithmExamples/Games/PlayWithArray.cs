@@ -8,7 +8,12 @@ namespace AlgorithmExamples.Games
         {
             int countNumbers = 5;
             Console.WriteLine($"Write {countNumbers} numbers and computer will find the smallest number, the biggest number and sum of elements.");
-            int[] array = Game.ReadNumber(countNumbers);
+            int[] array = new int[countNumbers];
+            for (int i = 0; i < array.Length; i++)
+            {
+                int number = Game.ReadNumber();
+                array[i] = number;
+            }
 
             ArrayInfo result = ArrayAlgorithms.GetArrayInfo(array);
             Console.WriteLine($"The the smallest number: {result.TheSmallestNumber}");

@@ -15,11 +15,9 @@ namespace AlgorithmExamples.Games
             }
             ArrayAlgorithms.BubbleSort(numbers);
 
-            int countNumbers = 1;
             Console.WriteLine("Write number from 1 to 50. If this number is present in array, program will find position of number");
-            int[] array = Game.ReadNumber(countNumbers);
-
-            int index = BinarySearch.Search(numbers, array[0]);
+            int number = Game.ReadNumber();
+            int index = BinarySearch.Search(numbers, number);
             if (index == -1)
             {
                 Console.WriteLine("Selected number doesn't exist in array");
