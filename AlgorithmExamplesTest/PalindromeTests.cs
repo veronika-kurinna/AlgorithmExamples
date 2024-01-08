@@ -14,11 +14,8 @@ namespace AlgorithmExamplesTest
         [InlineData("k")]
         public void IsWordPalindrome_WordIsPalindrome_ReturnsTrue(string word)
         {
-            //Arrange
-            Palindrome palindrome = new Palindrome();
-
-            //Act
-            bool result = palindrome.IsWordPalindrome(word);
+            //Arrange && Act
+            bool result = Palindrome.IsWordPalindrome(word);
 
             //Assert
             result.Should().BeTrue();
@@ -30,11 +27,8 @@ namespace AlgorithmExamplesTest
         [InlineData("cat")]
         public void IsWordPalindrome_WordIsNotPalindrome_ReturnsFalse(string word)
         {
-            //Arrange
-            Palindrome palindrome = new Palindrome();
-
-            //Act
-            bool result = palindrome.IsWordPalindrome(word);
+            //Arrange && Act
+            bool result = Palindrome.IsWordPalindrome(word);
 
             //Assert
             result.Should().BeFalse();

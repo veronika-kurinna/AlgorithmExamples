@@ -1,8 +1,8 @@
 ﻿namespace AlgorithmExamples.Algorithms
 {
-    public class Palindrome : IPalindrome
+    public static class Palindrome
     {
-        public bool IsWordPalindrome(string word)
+        public static bool IsWordPalindrome(string word)
         {
             int leftIndex = 0;
             int rightIndex = word.Length - 1;

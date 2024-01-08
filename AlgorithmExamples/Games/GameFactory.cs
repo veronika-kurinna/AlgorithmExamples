@@ -13,7 +13,7 @@
                 case "playwitharray":
                     return new PlayWithArray();
                 case "guesspalindrome":
-                    return new GuessPalindrome(_palindrome);
+                    return new GuessPalindrome();
                 default:
                     throw new ArgumentException("Invalid game specified");
             }
