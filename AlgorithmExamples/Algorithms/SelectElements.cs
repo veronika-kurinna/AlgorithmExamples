@@ -1,8 +1,8 @@
 ﻿namespace AlgorithmExamples.Algorithms
 {
-    public class SelectElements :ISelectElements
+    public static class SelectElements
     {
-        public List<T> Select<T>(List<T> list, int countElements)
+        public static List<T> Select<T>(List<T> list, int countElements)
         {
             if (countElements < 0)
             {

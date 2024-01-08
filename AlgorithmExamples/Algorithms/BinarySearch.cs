@@ -1,8 +1,8 @@
 ﻿namespace AlgorithmExamples.Algorithms
 {
-    public class BinarySearch : IBinarySearch
+    public static class BinarySearch
     {
-        public int Search(int[] array, int searchedValue)
+        public static int Search(int[] array, int searchedValue)
         {
             int minIndex = 0;
             int maxIndex = array.Length - 1;

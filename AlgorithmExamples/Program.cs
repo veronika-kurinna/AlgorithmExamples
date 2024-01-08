@@ -1,5 +1,4 @@
-﻿using AlgorithmExamples.Algorithms;
-using AlgorithmExamples.Games;
+﻿using AlgorithmExamples.Games;
 
 namespace AlgorithmExamples
 {
@@ -7,15 +6,9 @@ namespace AlgorithmExamples
     {
         static void Main(string[] args)
         {
-            SelectElements selectElements = new SelectElements();
-            BinarySearch binarySearch = new BinarySearch();
-            TheBiggestNumber theBiggestNumber = new TheBiggestNumber();
-            Palindrome palindrome = new Palindrome();
-            TwoSum twoSum = new TwoSum();
+            GameFactory factory = new GameFactory();
 
-            GameFactory factory = new GameFactory(selectElements, binarySearch, theBiggestNumber, palindrome, twoSum);
-
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, FindTheBiggestNumber, GuessPalindrome, FindNumbers):");
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 
