@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace AlgorithmExamplesTest
+namespace AlgorithmExamplesTest.AlgorithmsTests
 {
     public class PalindromeTests
     {

@@ -14,6 +14,8 @@
                     return new PlayWithArray();
                 case "guesspalindrome":
                     return new GuessPalindrome();
+                case "findindices":
+                    return new FindIndices();
                 default:
                     throw new ArgumentException("Invalid game specified");
             }
