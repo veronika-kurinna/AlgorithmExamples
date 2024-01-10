@@ -20,5 +20,22 @@
                     throw new ArgumentException("Invalid game specified");
             }
         }
+
+        public void SelectGame()
+        {
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, FindIndices):");
+            string? gameName = Console.ReadLine();
+            Console.WriteLine("\n");
+
+            try
+            {
+                IGame game = CreateGame(gameName!);
+                game.Play();
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        }
     }
 }

@@ -8,18 +8,23 @@ namespace AlgorithmExamples
         {
             GameFactory factory = new GameFactory();
 
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, FindIndices):");
-            string? gameName = Console.ReadLine();
-            Console.WriteLine("\n");
+            while (true)
+            {
+                factory.SelectGame();
 
-            try
-            {
-                IGame game = factory.CreateGame(gameName!);
-                game.Play();
-            }
-            catch (ArgumentException exception)
-            {
-                Console.WriteLine(exception.Message);
+                Console.WriteLine("\n");
+                Console.WriteLine("Do you want to play again?");
+                Console.WriteLine("Yes - 1, No - any numbers");
+                int answer = ConsoleReader.ReadNumber();
+                if (answer == 1)
+                {
+                    Console.WriteLine("Great!");
+                }
+                else
+                {
+                    Console.WriteLine("See you next day");
+                    break;
+                }
             }
         }
     }
