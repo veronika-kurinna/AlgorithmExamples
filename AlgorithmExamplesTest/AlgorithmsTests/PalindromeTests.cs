@@ -12,10 +12,10 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         [InlineData("smart trams")]
         [InlineData("radar")]
         [InlineData("k")]
-        public void IsWordPalindrome_WordIsPalindrome_ReturnsTrue(string word)
+        public void IsPalindrome_WordIsPalindrome_ReturnsTrue(string word)
         {
             //Arrange && Act
-            bool result = Palindrome.IsWordPalindrome(word);
+            bool result = Palindrome.IsPalindrome(word);
 
             //Assert
             result.Should().BeTrue();
@@ -25,13 +25,25 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
         [InlineData("madvm")]
         [InlineData("mvdam")]
         [InlineData("cat")]
-        public void IsWordPalindrome_WordIsNotPalindrome_ReturnsFalse(string word)
+        public void IsPalindrome_WordIsNotPalindrome_ReturnsFalse(string word)
         {
             //Arrange && Act
-            bool result = Palindrome.IsWordPalindrome(word);
+            bool result = Palindrome.IsPalindrome(word);
 
             //Assert
             result.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData("   ")]
+        [InlineData(null)]
+        public void IsPalindrome_WordIsInvalid_ThrowsArgumentException(string word)
+        {
+            //Arrange && Act && Assert
+            Action action = () => Palindrome.IsPalindrome(word);
+            action.Should().Throw<ArgumentException>()
+                            .WithMessage("Word is invalid. Word must have letters");
         }
     }
 }

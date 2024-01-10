@@ -2,8 +2,13 @@
 {
     public static class Palindrome
     {
-        public static bool IsWordPalindrome(string word)
+        public static bool IsPalindrome(string word)
         {
+            if (string.IsNullOrWhiteSpace(word))
+            {
+                throw new ArgumentException("Word is invalid. Word must have letters");
+            }
+
             int leftIndex = 0;
             int rightIndex = word.Length - 1;
             while (rightIndex > leftIndex)

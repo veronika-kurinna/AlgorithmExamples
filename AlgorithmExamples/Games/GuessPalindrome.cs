@@ -8,14 +8,13 @@ namespace AlgorithmExamples.Games
         {
             Console.WriteLine("Write palindrome word and program will check is it palindrome or not:");
             string? word = Console.ReadLine();
-            bool isPalindrome = Palindrome.IsWordPalindrome(word!);
-            if (isPalindrome)
+            if (Palindrome.IsPalindrome(word!))
             {
-                Console.WriteLine("This word is palindrome.");
+                Console.WriteLine($"{word} is palindrome.");
             }
             else
             {
-                Console.WriteLine("This word isn't palindrome.");
+                Console.WriteLine($"{word} isn't palindrome.");
             }
         }
     }
