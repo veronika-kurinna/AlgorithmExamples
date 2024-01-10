@@ -43,7 +43,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             //Arrange && Act && Assert
             Action action = () => Palindrome.IsPalindrome(word);
             action.Should().Throw<ArgumentException>()
-                            .WithMessage("Word is invalid. Word must have letters");
+                            .WithMessage("Value is invalid. Word must have letters");
         }
     }
 }

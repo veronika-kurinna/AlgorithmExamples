@@ -6,7 +6,7 @@
         {
             if (string.IsNullOrWhiteSpace(word))
             {
-                throw new ArgumentException("Word is invalid. Word must have letters");
+                throw new ArgumentException("Value is invalid. Word must have letters");
             }
 
             int leftIndex = 0;

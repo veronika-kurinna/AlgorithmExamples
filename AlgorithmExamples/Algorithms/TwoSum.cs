@@ -4,6 +4,15 @@
     {
         public static int[] FindTwoSum(int[] array, int target)
         {
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array is empty");
+            }
+            if (array.Length == 1)
+            {
+                throw new ArgumentException("Array has only 1 number");
+            }
+
             Dictionary<int, int> dictionary = new Dictionary<int, int>();
             for (int firstNumber = 0; firstNumber < array.Length; firstNumber++)
             {
