@@ -29,11 +29,7 @@ namespace AlgorithmExamples.Games
                 else
                 {
                     Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
-                    Console.WriteLine($"We're going to use bottle sizes:");
-                    foreach (var item in suitableTwoBottlesSize)
-                    {
-                        Console.WriteLine($"{bottleSizes[item]}");
-                    }
+                    Console.WriteLine($"We're going to use bottle sizes: {suitableTwoBottlesSize[0]} and {suitableTwoBottlesSize[1]}");
                 }
             }
             else

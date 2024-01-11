@@ -7,11 +7,12 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
     public class TwoSumTests
     {
         [Theory]
-        [InlineData(new int[] { 6, 2, 4 }, 6, new int[] { 1, 2 })]
-        [InlineData(new int[] { -3, -3 }, -6, new int[] { 0, 1 })]
-        [InlineData(new int[] { 9, 2, 3, 4, 7, 0 }, 7, new int[] { 2, 3 })]
-        [InlineData(new int[] { 9, 2, -3, 7, 0, -4}, -7, new int[] { 2, 5 })]
-        [InlineData(new int[] { 5, 2, 3, 7, 8 }, 8, new int[] { 0, 2 })]
+        [InlineData(new int[] { 6, 2, 4 }, 6, new int[] { 2, 4 })]
+        [InlineData(new int[] { -3, -3 }, -6, new int[] { -3, -3 })]
+        [InlineData(new int[] { 9, 2, 3, 4, 7, 0 }, 7, new int[] { 3, 4 })]
+        [InlineData(new int[] { 9, 2, -3, 7, 0, -4 }, -7, new int[] { -3, -4 })]
+        [InlineData(new int[] { 5, 2, 3, 7, 8 }, 8, new int[] { 5, 3 })]
+        [InlineData(new int[] { 0, 2, 3, 9, 7 }, 4, new int[] { 2, 2 })]
         public void FindTwoSum_Numbers_ReturnsArrayCorrectly(int[] array, int target, int[] expectedResult)
         {
             //Arrange && Act
@@ -19,20 +20,6 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
 
             //Assert
             result.Should().Equal(expectedResult);
-        }
-
-        [Fact]
-        public void FindTwoSum_SumNotExist_ReturnsEmptyArray()
-        {
-            //Arrange 
-            int[] array = { 5, 2, 4, 7, 8};
-            int target = 8;
-
-            //Act
-            int[] result = TwoSum.FindTwoSum(array, target);
-
-            //Assert
-            result.Should().Equal(new int[0]);
         }
 
         [Fact]

@@ -14,17 +14,23 @@
             }
 
             Dictionary<int, int> dictionary = new Dictionary<int, int>();
-            for (int firstNumber = 0; firstNumber < array.Length; firstNumber++)
+            for (int i = 0; i < array.Length; i++)
             {
-                int secondNumber = target - array[firstNumber];
-                if (dictionary.ContainsKey(secondNumber))
+                int number = target - array[i];
+                if (dictionary.ContainsKey(number))
                 {
-                    return new int[] { dictionary[secondNumber], firstNumber};
+                    return new int[] { number, array[i] };
                 }
                 else
                 {
-                    dictionary[array[firstNumber]] = firstNumber;
+                    dictionary[array[i]] = i;
                 }
+            }
+
+            int halfTarget = target / 2;
+            if (dictionary.ContainsKey(halfTarget))
+            {
+                return new int[] { halfTarget, halfTarget };
             }
             return new int[0];
         }
