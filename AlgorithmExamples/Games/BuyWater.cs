@@ -15,37 +15,31 @@ namespace AlgorithmExamples.Games
             }
 
             Console.WriteLine("Our courier can deliver only two bottles. Please, write how many liters of water do you want to buy:");
-            int liters = ConsoleReader.ReadNumber();
-            decimal price = liters * costPerLiter;
+            int countLiters = ConsoleReader.ReadNumber();
+            decimal price = countLiters * costPerLiter;
 
-            int[] suitableTwoBottlesSize = TwoSum.FindTwoSum(bottleSizes, liters);
-            bool isSuitableBottleSize = false;
-            if (suitableTwoBottlesSize.Length > 0)
+            int index = BinarySearch.Search(bottleSizes, countLiters);
+            if (index == -1)
             {
-                isSuitableBottleSize = true;
-                Console.WriteLine($"Great! The cost of {liters}L water is {price} Hrn.");
-                Console.WriteLine($"We're going to use bottle sizes:");
-                foreach (var item in suitableTwoBottlesSize)
+                int[] suitableTwoBottlesSize = TwoSum.FindTwoSum(bottleSizes, countLiters);
+                if (suitableTwoBottlesSize.Length == 0)
                 {
-                    Console.WriteLine($"{bottleSizes[item]}");
+                    Console.WriteLine($"Sorry, we can't deliver {countLiters}L. We don't have suitable bottle size");
+                }
+                else
+                {
+                    Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
+                    Console.WriteLine($"We're going to use bottle sizes:");
+                    foreach (var item in suitableTwoBottlesSize)
+                    {
+                        Console.WriteLine($"{bottleSizes[item]}");
+                    }
                 }
             }
             else
             {
-                for (int i = 0; i < bottleSizes.Length; i++)
-                {
-                    if (liters == bottleSizes[i] || liters == bottleSizes[i] * 2)
-                    {
-                        isSuitableBottleSize = true;
-                        Console.WriteLine($"Great! The cost of {liters}L water is {price} Hrn.");
-                        Console.WriteLine($"We're going to use bottle size: {bottleSizes[i]}");
-                    }
-                }
-            }
-
-            if (!isSuitableBottleSize)
-            {
-                Console.WriteLine($"Sorry, we can't deliver {liters}L. We don't have suitable bottle size");
+                Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
+                Console.WriteLine($"We're going to use bottle size: {bottleSizes[index]}");
             }
         }
     }

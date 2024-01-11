@@ -1,4 +1,4 @@
-﻿namespace AlgorithmExamples.Algorithms
+﻿namespace AlgorithmExamples.Models
 {
     public class ArrayInfo
     {
