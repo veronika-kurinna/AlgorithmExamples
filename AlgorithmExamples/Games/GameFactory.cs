@@ -14,8 +14,8 @@
                     return new PlayWithArray();
                 case "guesspalindrome":
                     return new GuessPalindrome();
-                case "findindices":
-                    return new FindIndices();
+                case "buywater":
+                    return new BuyWater();
                 default:
                     throw new ArgumentException("Invalid game specified");
             }
@@ -23,7 +23,7 @@
 
         public void SelectGame()
         {
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, FindIndices):");
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, BuyWater):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 

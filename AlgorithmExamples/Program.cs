@@ -18,7 +18,7 @@ namespace AlgorithmExamples
                 int answer = ConsoleReader.ReadNumber();
                 if (answer == 1)
                 {
-                    Console.WriteLine("Great!");
+                    Console.WriteLine("\n");
                 }
                 else
                 {
