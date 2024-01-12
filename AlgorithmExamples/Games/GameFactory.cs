@@ -14,6 +14,8 @@
                     return new PlayWithArray();
                 case "guesspalindrome":
                     return new GuessPalindrome();
+                case "buywater":
+                    return new BuyWater();
                 default:
                     throw new ArgumentException("Invalid game specified");
             }
