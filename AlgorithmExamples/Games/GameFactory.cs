@@ -12,6 +12,8 @@
                     return new GuessNumber();
                 case "playwitharray":
                     return new PlayWithArray();
+                case "guesspalindrome":
+                    return new GuessPalindrome();
                 default:
                     throw new ArgumentException("Invalid game specified");
             }
