@@ -14,7 +14,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("You've written letters. Use only numbers");
+                    Console.WriteLine("Value is invalid. Use only numbers");
                 }
             }
         }
