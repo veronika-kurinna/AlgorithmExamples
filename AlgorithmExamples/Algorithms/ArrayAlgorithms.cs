@@ -1,6 +1,4 @@
-﻿using AlgorithmExamples.Models;
-
-namespace AlgorithmExamples.Algorithms
+﻿namespace AlgorithmExamples.Algorithms
 {
     public static class ArrayAlgorithms
     {
