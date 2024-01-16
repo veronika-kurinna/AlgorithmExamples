@@ -18,24 +18,20 @@ namespace AlgorithmExamples.Games
             int countLiters = ConsoleReader.ReadNumber();
             decimal price = countLiters * costPerLiter;
 
-            int index = BinarySearch.Search(bottleSizes, countLiters);
-            if (index == -1)
+            int[] suitableTwoBottlesSize = TwoSum.FindTwoSum(bottleSizes, countLiters);
+            if (suitableTwoBottlesSize.Length == 1)
             {
-                int[] suitableTwoBottlesSize = TwoSum.FindTwoSum(bottleSizes, countLiters);
-                if (suitableTwoBottlesSize.Length == 0)
-                {
-                    Console.WriteLine($"Sorry, we can't deliver {countLiters}L. We don't have suitable bottle size");
-                }
-                else
-                {
-                    Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
-                    Console.WriteLine($"We're going to use bottle sizes: {suitableTwoBottlesSize[0]} and {suitableTwoBottlesSize[1]}");
-                }
+                Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
+                Console.WriteLine($"We're going to use bottle size: {suitableTwoBottlesSize[0]}");
+            }
+            else if(suitableTwoBottlesSize.Length == 2)
+            {
+                Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
+                Console.WriteLine($"We're going to use bottle sizes: {suitableTwoBottlesSize[0]} and {suitableTwoBottlesSize[1]}");
             }
             else
             {
-                Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
-                Console.WriteLine($"We're going to use bottle size: {bottleSizes[index]}");
+                Console.WriteLine($"Sorry, we can't deliver {countLiters}L. We don't have suitable bottle size");
             }
         }
     }
