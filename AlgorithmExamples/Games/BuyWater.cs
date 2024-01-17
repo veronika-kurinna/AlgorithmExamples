@@ -25,7 +25,7 @@ namespace AlgorithmExamples.Games
             Console.WriteLine("Our courier can deliver only two bottles. Please, write how many liters of water do you want to buy:");
             int countLiters = ConsoleReader.ReadNumber();
 
-            BottleOfWater[] suitableTwoBottlesSize = ShopWater.FindBottles(_bottlesOfWater, countLiters);
+            BottleOfWater[] suitableTwoBottlesSize = WaterAlgorithm.FindBottles(_bottlesOfWater, countLiters);
             Console.WriteLine("\n");
             PrintMessage(suitableTwoBottlesSize);
         }
