@@ -2,7 +2,7 @@
 
 namespace AlgorithmExamples.Algorithms
 {
-    public static class TwoSum
+    public static class ShopWater
     {
         public static BottleOfWater[] FindBottles(BottleOfWater[] bottles, int target)
         {

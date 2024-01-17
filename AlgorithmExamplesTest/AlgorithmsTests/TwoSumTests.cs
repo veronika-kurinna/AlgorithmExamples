@@ -22,7 +22,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             int target = 15;
 
             //Act
-            BottleOfWater[] result = TwoSum.FindBottles(bottlesOfWater, target);
+            BottleOfWater[] result = ShopWater.FindBottles(bottlesOfWater, target);
 
             //Assert
             result.Should().Satisfy(b => b.Volume == 5 && b.Price == 60.8m,
@@ -44,7 +44,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             int target = 2;
 
             //Act
-            BottleOfWater[] result = TwoSum.FindBottles(bottlesOfWater, target);
+            BottleOfWater[] result = ShopWater.FindBottles(bottlesOfWater, target);
 
             //Assert
             result.Should().Satisfy(b => b.Volume == 1 && b.Price == 18.7m,
@@ -66,7 +66,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             int target = 5;
 
             //Act
-            BottleOfWater[] result = TwoSum.FindBottles(bottlesOfWater, target);
+            BottleOfWater[] result = ShopWater.FindBottles(bottlesOfWater, target);
 
             //Assert
             result.Should().Satisfy(b => b.Volume == 5 && b.Price == 60.8m);
@@ -87,7 +87,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             int target = 22;
 
             //Act
-            BottleOfWater[] result = TwoSum.FindBottles(bottlesOfWater, target);
+            BottleOfWater[] result = ShopWater.FindBottles(bottlesOfWater, target);
 
             //Assert
             result.Should().BeEmpty();
@@ -101,7 +101,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             int target = 7;
 
             //Act && Assert
-            Action action = () => TwoSum.FindBottles(bottlesOfWater, target);
+            Action action = () => ShopWater.FindBottles(bottlesOfWater, target);
             action.Should().Throw<ArgumentException>()
                            .WithMessage("Array is empty");
         }
@@ -121,7 +121,7 @@ namespace AlgorithmExamplesTest.AlgorithmsTests
             int target = -7;
 
             //Act && Assert
-            Action action = () => TwoSum.FindBottles(bottlesOfWater, target);
+            Action action = () => ShopWater.FindBottles(bottlesOfWater, target);
             action.Should().Throw<ArgumentException>()
                            .WithMessage($"Value {target} is invalid. Value must be more than zero");
         }
