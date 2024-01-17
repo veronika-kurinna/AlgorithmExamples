@@ -1,38 +1,53 @@
 ﻿using AlgorithmExamples.Algorithms;
+using AlgorithmExamples.Models;
 
 namespace AlgorithmExamples.Games
 {
     public class BuyWater : IGame
     {
+        public BottleOfWater[] _bottlesOfWater = 
+        {
+            new() { Volume = 1, Price = 18.7m }, 
+            new() { Volume = 3, Price = 45.5m }, 
+            new() { Volume = 5, Price = 60.8m }, 
+            new() { Volume = 10, Price = 110m }, 
+            new() { Volume = 18, Price = 200m }, 
+        };
+
         public void Play()
         {
-            decimal costPerLiter = 2.5m;
-            Console.WriteLine($"Hi! We deliver water to your house. The cost of 1L water is {costPerLiter} Hrn. We have bottle sizes:");
-            int[] bottleSizes = { 1, 3, 5, 7, 10, 18 };
-            foreach (var item in bottleSizes)
+            Console.WriteLine($"Hi! We deliver water to your house. We have bottle sizes:");
+            foreach (var item in _bottlesOfWater)
             {
-                Console.WriteLine($"{item}L");
+                Console.WriteLine($"{item.Volume}L - {item.Price} Hrn");
             }
 
             Console.WriteLine("Our courier can deliver only two bottles. Please, write how many liters of water do you want to buy:");
             int countLiters = ConsoleReader.ReadNumber();
-            decimal price = countLiters * costPerLiter;
 
-            int[] suitableTwoBottlesSize = TwoSum.FindTwoSum(bottleSizes, countLiters);
-            if (suitableTwoBottlesSize.Length == 1)
+            BottleOfWater[] suitableTwoBottlesSize = TwoSum.FindBottles(_bottlesOfWater, countLiters);
+            Console.WriteLine("\n");
+            PrintMessage(suitableTwoBottlesSize);
+        }
+
+        private void PrintMessage(BottleOfWater[] bottles) 
+        {
+            if (bottles.Length > 0)
             {
-                Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
-                Console.WriteLine($"We're going to use bottle size: {suitableTwoBottlesSize[0]}");
-            }
-            else if(suitableTwoBottlesSize.Length == 2)
-            {
-                Console.WriteLine($"Great! The cost of {countLiters}L water is {price} Hrn.");
-                Console.WriteLine($"We're going to use bottle sizes: {suitableTwoBottlesSize[0]} and {suitableTwoBottlesSize[1]}");
+                decimal totalAmount = 0;
+                Console.WriteLine($"Your order consist of:");
+                for (int i = 0; i < bottles.Length; i++)
+                {
+                    Console.WriteLine($"{bottles[i].Volume}L - {bottles[i].Price} Hrn");
+                    totalAmount += bottles[i].Price;
+                }
+                Console.WriteLine($"Total amount: {totalAmount} Hrn");
             }
             else
             {
-                Console.WriteLine($"Sorry, we can't deliver {countLiters}L. We don't have suitable bottle size");
+                Console.WriteLine($"Sorry, we can't deliver water. We don't have suitable bottle size");
             }
         }
+
     }
 }

@@ -1,34 +1,47 @@
-﻿namespace AlgorithmExamples.Algorithms
+﻿using AlgorithmExamples.Models;
+
+namespace AlgorithmExamples.Algorithms
 {
     public static class TwoSum
     {
-        public static int[] FindTwoSum(int[] array, int target)
+        public static BottleOfWater[] FindBottles(BottleOfWater[] bottles, int target)
         {
-            if (array.Length == 0)
+            if (bottles.Length == 0)
             {
                 throw new ArgumentException("Array is empty");
             }
-
-            Dictionary<int, int> dictionary = new Dictionary<int, int>();
-            for (int i = 0; i < array.Length; i++)
+            if (target < 0)
             {
-                dictionary[array[i]] = i;
+                throw new ArgumentException($"Value {target} is invalid. Value must be more than zero");
+            }
+
+            Dictionary<int, decimal> dictionary = new Dictionary<int, decimal>();
+            for (int i = 0; i < bottles.Length; i++)
+            {
+                dictionary.Add(bottles[i].Volume, bottles[i].Price);
             }
 
             if (dictionary.ContainsKey(target))
             {
-                return new int[] { target };
+                return new BottleOfWater[] 
+                {
+                   new() { Volume = target, Price = dictionary[target]}
+                };
             }
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < bottles.Length; i++)
             {
-                int number = target - array[i];
-                if (dictionary.ContainsKey(number))
+                int difference = target - bottles[i].Volume;
+                if (dictionary.ContainsKey(difference))
                 {
-                    return new int[] { array[i], number };
+                    return new BottleOfWater[]
+                    {
+                        new() { Volume = bottles[i].Volume, Price = dictionary[bottles[i].Volume] }, 
+                        new() { Volume = difference, Price = dictionary[difference] } 
+                    };
                 }
             }
-            return new int[0];
+            return new BottleOfWater[0];
         }
     }
 }
