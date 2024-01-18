@@ -8,7 +8,7 @@ namespace AlgorithmExamples
         {
             GameFactory factory = new GameFactory();
 
-            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray):");
+            Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, BuyWater):");
             string? gameName = Console.ReadLine();
             Console.WriteLine("\n");
 
