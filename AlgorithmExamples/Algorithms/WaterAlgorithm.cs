@@ -10,7 +10,7 @@ namespace AlgorithmExamples.Algorithms
             {
                 throw new ArgumentException("Array is empty");
             }
-            if (target < 0)
+            if (target <= 0)
             {
                 throw new ArgumentException($"Value {target} is invalid. Value must be more than zero");
             }
