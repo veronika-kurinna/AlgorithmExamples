@@ -10,7 +10,18 @@ namespace AlgorithmExamples
 
             while (true)
             {
-                factory.SelectGame();
+                Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, BuyWater):");
+                string? gameName = Console.ReadLine();
+                Console.WriteLine("\n");
+                try
+                {
+                    IGame game = factory.CreateGame(gameName!);
+                    game.Play();
+                }
+                catch (ArgumentException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
 
                 Console.WriteLine("\n");
                 Console.WriteLine("Do you want to play again?");
