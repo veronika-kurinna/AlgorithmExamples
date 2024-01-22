@@ -2,13 +2,13 @@
 {
     public class GameFactory
     {
-        public Dictionary<string, IGame> games = new Dictionary<string, IGame>
+        public Dictionary<string, IGame> games = new Dictionary<string, IGame>(StringComparer.OrdinalIgnoreCase)
         {
-            {"trainingprogramming", new TrainingProgramming() },
-            {"guessnumber", new GuessNumber() },
-            {"playwitharray", new PlayWithArray() },
-            {"guesspalindrome", new GuessPalindrome() },
-            {"buywater", new BuyWater() }
+            {"TrainingProgramming", new TrainingProgramming() },
+            {"GuessNumber", new GuessNumber() },
+            {"PlayWithArray", new PlayWithArray() },
+            {"GuessPalindrome", new GuessPalindrome() },
+            {"BuyWater", new BuyWater() }
         };
 
         public string[] GameNames { 
@@ -20,9 +20,9 @@
 
         public IGame CreateGame(string gameName)
         {
-            if (games.ContainsKey(gameName.ToLower()))
+            if (games.ContainsKey(gameName))
             {
-                return games[gameName.ToLower()];
+                return games[gameName];
             }
             throw new ArgumentException("Invalid game specified");
         }
