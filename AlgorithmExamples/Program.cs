@@ -35,6 +35,7 @@ namespace AlgorithmExamples
                 Console.WriteLine("\n");
                 if (answer == 1)
                 {
+                    Console.Clear();
                     Console.WriteLine("Great!");
                 }
                 else
