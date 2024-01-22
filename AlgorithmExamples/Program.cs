@@ -10,7 +10,12 @@ namespace AlgorithmExamples
 
             while (true)
             {
-                Console.WriteLine("Select the game (TrainingProgramming, GuessNumber, PlayWithArray, GuessPalindrome, BuyWater):");
+                Console.WriteLine("Select the game:");
+                foreach (var item in factory.GameNames)
+                {
+                    Console.WriteLine(item);
+                }
+                
                 string? gameName = Console.ReadLine();
                 Console.WriteLine("\n");
                 try
