@@ -2,23 +2,29 @@
 {
     public class GameFactory
     {
+        private Dictionary<string, IGame> games = new Dictionary<string, IGame>(StringComparer.OrdinalIgnoreCase)
+        {
+            {"TrainingProgramming", new TrainingProgramming() },
+            {"GuessNumber", new GuessNumber() },
+            {"PlayWithArray", new PlayWithArray() },
+            {"GuessPalindrome", new GuessPalindrome() },
+            {"BuyWater", new BuyWater() }
+        };
+
+        public string[] GameNames { 
+            get
+            {
+                return games.Keys.ToArray();
+            }
+        }
+
         public IGame CreateGame(string gameName)
         {
-            switch (gameName.ToLower())
+            if (games.ContainsKey(gameName))
             {
-                case "trainingprogramming":
-                    return new TrainingProgramming();
-                case "guessnumber":
-                    return new GuessNumber();
-                case "playwitharray":
-                    return new PlayWithArray();
-                case "guesspalindrome":
-                    return new GuessPalindrome();
-                case "buywater":
-                    return new BuyWater();
-                default:
-                    throw new ArgumentException("Invalid game specified");
+                return games[gameName];
             }
+            throw new ArgumentException("Invalid game specified");
         }
     }
 }

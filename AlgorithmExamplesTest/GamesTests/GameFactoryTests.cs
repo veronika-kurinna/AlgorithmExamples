@@ -55,6 +55,38 @@ namespace AlgorithmExamplesTest.GamesTests
         }
 
         [Theory]
+        [InlineData("GuessPalindrome")]
+        [InlineData("guesspalindrome")]
+        [InlineData("GUESSPALINDROME")]
+        public void CreateGame_GuessPalindrome_ReturnsCorrectly(string game)
+        {
+            // Arrange
+            GameFactory factory = new GameFactory();
+
+            // Act
+            IGame result = factory.CreateGame(game);
+
+            // Assert
+            result.Should().BeOfType<GuessPalindrome>();
+        }
+
+        [Theory]
+        [InlineData("BuyWater")]
+        [InlineData("buywater")]
+        [InlineData("BUYWATER")]
+        public void CreateGame_BuyWater_ReturnsCorrectly(string game)
+        {
+            // Arrange
+            GameFactory factory = new GameFactory();
+
+            // Act
+            IGame result = factory.CreateGame(game);
+
+            // Assert
+            result.Should().BeOfType<BuyWater>();
+        }
+
+        [Theory]
         [InlineData("")]
         [InlineData(" ")]
         [InlineData("trainingprogrammin")]
