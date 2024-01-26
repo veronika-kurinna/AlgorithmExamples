@@ -2,7 +2,7 @@
 {
     public class GameFactory
     {
-        public Dictionary<string, IGame> games = new Dictionary<string, IGame>(StringComparer.OrdinalIgnoreCase)
+        private Dictionary<string, IGame> games = new Dictionary<string, IGame>(StringComparer.OrdinalIgnoreCase)
         {
             {"TrainingProgramming", new TrainingProgramming() },
             {"GuessNumber", new GuessNumber() },
