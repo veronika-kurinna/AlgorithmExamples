@@ -1,4 +1,5 @@
 ﻿using AlgorithmExamples.Games;
+using AlgorithmExamples.Helper;
 
 namespace AlgorithmExamples
 {

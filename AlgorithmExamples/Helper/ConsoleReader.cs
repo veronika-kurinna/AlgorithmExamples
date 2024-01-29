@@ -1,4 +1,4 @@
-﻿namespace AlgorithmExamples.Games
+﻿namespace AlgorithmExamples.Helper
 {
     public static class ConsoleReader
     {
